@@ -44,6 +44,9 @@ class Media
     #[ORM\Column(length: 255)]
     private ?string $poster = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $director = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -165,6 +168,18 @@ class Media
     public function setPoster(string $poster): static
     {
         $this->poster = $poster;
+
+        return $this;
+    }
+
+    public function getDirector(): ?string
+    {
+        return $this->director;
+    }
+
+    public function setDirector(string $director): static
+    {
+        $this->director = $director;
 
         return $this;
     }
