@@ -76,12 +76,12 @@ class Media
         return $this;
     }
 
-    public function getYear(): ?int
+    public function getYear(): ?string
     {
         return $this->year;
     }
 
-    public function setYear(?int $year): static
+    public function setYear(?string $year): static
     {
         $this->year = $year;
 
