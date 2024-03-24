@@ -1,7 +1,0 @@
-{
-  "name": "cinephile.app.core",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular-standalone"
-}
