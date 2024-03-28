@@ -1,52 +1,9 @@
 <app-banner></app-banner>
-<div class="container mt-3 mb-3">
-  <div class="row">
-    <h1>Películas:</h1>
-    @for(movie of moviesToShow; track $index;) {
 
-    <div class="col-lg-3">
-      <div class="card">
-        <img
-          src="{{ movie.poster }}"
-          class="card-img-top"
-          alt="{{ movie.title }}"
-        />
-        <div class="card-body">
-          <h5 class="card-title">{{ movie.title }}</h5>
-          <p class="card-text">Año: {{ movie.year }}</p>
-          <a href="#" class="btn btn-primary">Info</a>
-        </div>
-      </div>
-    </div>
-    }
-    <div class="controls">
-        <button class="btn btn-primary" (click)="onBackMovies()">Anterior</button>
-        <button class="btn btn-primary" (click)="onForwardMovies()">Siguiente</button>
-      </div>
-  </div>
-  <div class="row">
-    <h1>Series:</h1>
-    @for(serie of seriesToShow; track $index;) {
-
-    <div class="col-lg-3">
-      <div class="card">
-        <img
-          src="{{ serie.poster }}"
-          class="card-img-top"
-          alt="{{ serie.title }}"
-        />
-        <div class="card-body">
-          <h5 class="card-title">{{ serie.title }}</h5>
-          <p class="card-text">Año: {{ serie.year }}</p>
-          <a href="#" class="btn btn-primary">Info</a>
-        </div>
-      </div>
-    </div>
-
-    }
-    <div class="controls">
-        <button class="btn btn-primary" (click)="onBackSeries()">Anterior</button>
-        <button class="btn btn-primary" (click)="onForwardSeries()">Siguiente</button>
-      </div>
-  </div>
-</div>
+<p-button label="Submit"></p-button>
+<p-card header="Title">
+  <p class="m-0">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
+      quas!
+  </p>
+</p-card>
