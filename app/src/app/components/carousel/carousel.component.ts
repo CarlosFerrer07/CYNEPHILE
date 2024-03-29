@@ -11,4 +11,5 @@ import { NgprimeModule } from '../../primeng/ngprime/ngprime.module';
 })
 export class CarouselComponent {
   @Input() media: Movies[] = [];
+  @Input() type: string = '';
 }

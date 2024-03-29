@@ -17,6 +17,8 @@ export class InicioComponent implements OnInit {
 
   public movies: Movies[] = [];
 
+  public type: string[] = ['Películas', 'Series'];
+
   ngOnInit(): void {
     this.getAllMovies();
   }
