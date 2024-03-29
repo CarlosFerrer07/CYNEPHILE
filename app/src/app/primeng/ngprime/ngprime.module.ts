@@ -6,6 +6,8 @@ import { BadgeModule } from 'primeng/badge';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { FormsModule } from '@angular/forms';
+import { CarouselModule } from 'primeng/carousel';
+import { TagModule } from 'primeng/tag';
 
 @NgModule({
   declarations: [],
@@ -17,7 +19,9 @@ import { FormsModule } from '@angular/forms';
     CardModule,
     SelectButtonModule,
     ColorPickerModule,
-    FormsModule
+    FormsModule,
+    CarouselModule,
+    TagModule
   ]
 })
 export class NgprimeModule { }
