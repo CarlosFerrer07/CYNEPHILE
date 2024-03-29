@@ -1,39 +1,44 @@
 <div class="card">
-  <h1>{{ type }}</h1>
-  <p-carousel
-    [value]="media"
-    [numVisible]="3"
-    [numScroll]="3"
-    [circular]="false"
+  <p-panel
+    header="{{ type.toLocaleUpperCase() }}"
+    [toggleable]="true"
+    header="Scoped Panel"
   >
-    <ng-template let-media pTemplate="item">
-      <div
-        class="border-1 surface-border border-round m-2 text-center py-5 px-3"
-      >
-        <div class="mb-3">
-          <img
-            src="../../../assets/img/{{ folder }}/{{ media.poster }}"
-            [alt]="media.title"
-            class="w-6 shadow-2"
-            style="width: 50%"
-          />
-        </div>
-        <div>
-          <h4 class="mb-1">{{ media.title }}</h4>
-          <h6 class="mt-0 mb-3">{{ media.year }}</h6>
-          <p-tag [value]="media.director"></p-tag>
-          <div
-            class="mt-5 flex align-items-center justify-content-center gap-2"
-          >
-            <p-button icon="pi pi-search" [rounded]="true" />
-            <p-button
-              icon="pi pi-star-fill"
-              [rounded]="true"
-              severity="secondary"
+    <p-carousel
+      [value]="media"
+      [numVisible]="3"
+      [numScroll]="3"
+      [circular]="false"
+    >
+      <ng-template let-media pTemplate="item">
+        <div
+          class="border-1 surface-border border-round m-2 text-center py-5 px-3"
+        >
+          <div class="mb-3">
+            <img
+              src="../../../assets/img/{{ folder }}/{{ media.poster }}"
+              [alt]="media.title"
+              class="w-6 shadow-2"
+              style="width: 50%"
             />
           </div>
+          <div>
+            <h4 class="mb-1">{{ media.title }}</h4>
+            <h6 class="mt-0 mb-3">{{ media.year }}</h6>
+            <p-tag [value]="media.director"></p-tag>
+            <div
+              class="mt-5 flex align-items-center justify-content-center gap-2"
+            >
+              <p-button icon="pi pi-search" [rounded]="true" />
+              <p-button
+                icon="pi pi-star-fill"
+                [rounded]="true"
+                severity="secondary"
+              />
+            </div>
+          </div>
         </div>
-      </div>
-    </ng-template>
-  </p-carousel>
+      </ng-template>
+    </p-carousel>
+  </p-panel>
 </div>

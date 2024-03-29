@@ -8,12 +8,11 @@ import { ColorPickerModule } from 'primeng/colorpicker';
 import { FormsModule } from '@angular/forms';
 import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
+import { PanelModule } from 'primeng/panel';
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule],
   exports: [
     ButtonModule,
     CardModule,
@@ -21,7 +20,8 @@ import { TagModule } from 'primeng/tag';
     ColorPickerModule,
     FormsModule,
     CarouselModule,
-    TagModule
-  ]
+    TagModule,
+    PanelModule,
+  ],
 })
-export class NgprimeModule { }
+export class NgprimeModule {}

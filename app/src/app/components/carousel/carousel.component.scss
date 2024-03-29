@@ -1,10 +1,18 @@
 :host ::ng-deep .p-carousel {
     border: none !important;
 }
+:host ::ng-deep .p-panel-header {
+    background-color: var(--blue-500);
+    border-color: var(--blue-500);
+    color: #ffffff;
+}
 
+:host ::ng-deep .p-panel-content {
+    border-color: var(--blue-500);
+}
 
 .card {
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
     margin-top: 20px;
 }
