@@ -16,16 +16,26 @@ export class InicioComponent implements OnInit {
   constructor(private mediaSvc: MediaService) {}
 
   public movies: Movies[] = [];
+  public series: Serie[] = [];
 
   public type: string[] = ['Películas', 'Series'];
+  public folder: string[] = ['peliculas', 'series'];
 
   ngOnInit(): void {
     this.getAllMovies();
+    this.getAllSeries();
   }
 
   public getAllMovies() {
     this.mediaSvc.getAllMovies().subscribe((moviesData) => {
       this.movies = moviesData;
+    });
+  }
+
+  public getAllSeries() {
+    this.mediaSvc.getAllSeries().subscribe((seriesData) => {
+      this.series = seriesData;
+      console.log(this.series);
     });
   }
 }

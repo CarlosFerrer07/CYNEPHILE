@@ -1,5 +1,6 @@
 import { Component, Input, Output } from '@angular/core';
 import { Movies } from '../../interfaces/media.interface';
+import { Serie } from '../../interfaces/media.interface';
 import { NgprimeModule } from '../../primeng/ngprime/ngprime.module';
 
 @Component({
@@ -10,6 +11,7 @@ import { NgprimeModule } from '../../primeng/ngprime/ngprime.module';
   styleUrl: './carousel.component.scss',
 })
 export class CarouselComponent {
-  @Input() media: Movies[] = [];
+  @Input() media: Movies[] | Serie[] = [];
   @Input() type: string = '';
+  @Input() folder: string = '';
 }
