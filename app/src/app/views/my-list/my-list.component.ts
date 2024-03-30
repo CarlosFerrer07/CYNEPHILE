@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { CardComponent } from '../../components/card/card.component';
 import { Movies, Serie } from '../../interfaces/media.interface';
+import { FavouriteCardComponent } from '../../components/favourite-card/favourite-card.component';
 
 @Component({
   selector: 'app-my-list',
   standalone: true,
-  imports: [CardComponent],
+  imports: [FavouriteCardComponent],
   templateUrl: './my-list.component.html',
   styleUrl: './my-list.component.scss',
 })
 export class MyListComponent implements OnInit {
   public media: (Movies | Serie)[] = [];
+
+  constructor() {}
 
   ngOnInit(): void {
     this.getMedia();
