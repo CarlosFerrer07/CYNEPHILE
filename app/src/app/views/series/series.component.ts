@@ -15,6 +15,11 @@ export class SeriesComponent {
   constructor(private mediaSvc: MediaService) {}
 
   public series: Serie[] = [];
+  public paginatedSeries: Serie[] = [];
+  // Para la paginación
+  public totalRecords: number = 0;
+  public first: number = 0;
+  public rows: number = 4;
 
   public folder: string = 'series';
 
@@ -25,6 +30,21 @@ export class SeriesComponent {
   public getSeries() {
     this.mediaSvc.getAllSeries().subscribe((series) => {
       this.series = series;
+      this.totalRecords = this.series.length;
+      this.paginateSeries();
     });
+  }
+
+  public onPageChange(event: any) {
+    this.first = event.first;
+    this.rows = event.rows;
+    this.paginateSeries();
+  }
+
+  private paginateSeries() {
+    this.paginatedSeries = this.series.slice(
+      this.first,
+      this.first + this.rows
+    );
   }
 }

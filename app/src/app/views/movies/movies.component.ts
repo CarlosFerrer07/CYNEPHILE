@@ -3,6 +3,7 @@ import { NgprimeModule } from '../../primeng/ngprime/ngprime.module';
 import { MediaService } from '../../core/services/media.service';
 import { Movies } from '../../interfaces/media.interface';
 import { CardComponent } from '../../components/card/card.component';
+import { PageEvent } from '../../interfaces/page.interface';
 
 @Component({
   selector: 'app-movies',
@@ -15,7 +16,13 @@ export class MoviesComponent {
   constructor(private mediaSvc: MediaService) {}
 
   public movies: Movies[] = [];
+  public paginatedMovies: Movies[] = [];
   public folder: string = 'peliculas';
+
+  // Para la paginación
+  public totalRecords: number = 0;
+  public first: number = 0;
+  public rows: number = 4;
 
   ngOnInit(): void {
     this.getMovies();
@@ -24,6 +31,21 @@ export class MoviesComponent {
   public getMovies() {
     this.mediaSvc.getAllMovies().subscribe((movies) => {
       this.movies = movies;
+      this.totalRecords = this.movies.length;
+      this.paginateMovies();
     });
+  }
+
+  public onPageChange(event: any) {
+    this.first = event.first;
+    this.rows = event.rows;
+    this.paginateMovies();
+  }
+
+  private paginateMovies() {
+    this.paginatedMovies = this.movies.slice(
+      this.first,
+      this.first + this.rows
+    );
   }
 }

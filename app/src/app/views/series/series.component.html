@@ -1,9 +1,19 @@
 <div class="container-fluid" style="margin-top: 20px">
   <div class="row card-container text-center align-items-center">
-    @for (serie of series; track $index) {
+    @for (serie of paginatedSeries; track $index) {
     <div class="col-lg-3" style="margin-bottom: 15px">
       <app-card [item]="serie" [folder]="folder"></app-card>
     </div>
     }
+  </div>
+</div>
+<div class="container">
+  <div class="row justify-content-center">
+    <p-paginator
+      (onPageChange)="onPageChange($event)"
+      [first]="first"
+      [rows]="rows"
+      [totalRecords]="series.length"
+    ></p-paginator>
   </div>
 </div>
