@@ -19,7 +19,7 @@ export class SeriesComponent {
   // Para la paginación
   public totalRecords: number = 0;
   public first: number = 0;
-  public rows: number = 4;
+  public objectsPerPage: number = 8;
 
   public folder: string = 'series';
 
@@ -37,14 +37,14 @@ export class SeriesComponent {
 
   public onPageChange(event: any) {
     this.first = event.first;
-    this.rows = event.rows;
+    this.objectsPerPage = event.rows;
     this.paginateSeries();
   }
 
   private paginateSeries() {
     this.paginatedSeries = this.series.slice(
       this.first,
-      this.first + this.rows
+      this.first + this.objectsPerPage
     );
   }
 }

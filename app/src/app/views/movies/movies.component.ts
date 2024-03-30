@@ -22,7 +22,7 @@ export class MoviesComponent {
   // Para la paginación
   public totalRecords: number = 0;
   public first: number = 0;
-  public rows: number = 4;
+  public objectsPerPage: number = 8;
 
   ngOnInit(): void {
     this.getMovies();
@@ -38,14 +38,14 @@ export class MoviesComponent {
 
   public onPageChange(event: any) {
     this.first = event.first;
-    this.rows = event.rows;
+    this.objectsPerPage = event.rows;
     this.paginateMovies();
   }
 
   private paginateMovies() {
     this.paginatedMovies = this.movies.slice(
       this.first,
-      this.first + this.rows
+      this.first + this.objectsPerPage
     );
   }
 }
