@@ -17,7 +17,6 @@ export class MoviesComponent {
 
   public movies: Movies[] = [];
   public paginatedMovies: Movies[] = [];
-  public folder: string = 'peliculas';
 
   // Para la paginación
   public totalRecords: number = 0;

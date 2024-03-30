@@ -14,7 +14,6 @@ import { NgStyle } from '@angular/common';
 export class CarouselComponent {
   @Input() media: Movies[] | Serie[] = [];
   @Input() type: string = '';
-  @Input() folder: string = '';
 
   onFavourite(media: Movies | Serie) {
     const serializedMedia = JSON.stringify(media);

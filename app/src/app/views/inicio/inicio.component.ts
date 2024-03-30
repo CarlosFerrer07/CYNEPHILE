@@ -19,7 +19,6 @@ export class InicioComponent implements OnInit {
   public series: Serie[] = [];
 
   public type: string[] = ['Películas', 'Series'];
-  public folder: string[] = ['peliculas', 'series'];
 
   ngOnInit(): void {
     this.getAllMovies();

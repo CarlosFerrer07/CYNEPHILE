@@ -21,8 +21,6 @@ export class SeriesComponent {
   public first: number = 0;
   public objectsPerPage: number = 8;
 
-  public folder: string = 'series';
-
   ngOnInit(): void {
     this.getSeries();
   }

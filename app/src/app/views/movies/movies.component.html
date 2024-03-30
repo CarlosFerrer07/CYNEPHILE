@@ -2,7 +2,7 @@
   <div class="row card-container text-center align-items-center">
     @for (movie of paginatedMovies; track $index) {
     <div class="col-lg-3 col-md-6 col-sm-12" style="margin-bottom: 15px">
-      <app-card [item]="movie" [folder]="folder"></app-card>
+      <app-card [item]="movie"></app-card>
     </div>
     }
   </div>
