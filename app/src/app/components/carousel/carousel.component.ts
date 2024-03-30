@@ -15,4 +15,9 @@ export class CarouselComponent {
   @Input() media: Movies[] | Serie[] = [];
   @Input() type: string = '';
   @Input() folder: string = '';
+
+  onFavourite(media: Movies | Serie) {
+    const serializedMedia = JSON.stringify(media);
+    localStorage.setItem(media.title, serializedMedia);
+  }
 }

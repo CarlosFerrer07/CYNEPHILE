@@ -35,7 +35,6 @@ export class InicioComponent implements OnInit {
   public getAllSeries() {
     this.mediaSvc.getAllSeries().subscribe((seriesData) => {
       this.series = seriesData;
-      console.log(this.series);
     });
   }
 }
