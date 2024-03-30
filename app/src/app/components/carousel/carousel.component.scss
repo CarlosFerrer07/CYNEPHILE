@@ -2,13 +2,13 @@
     border: none !important;
 }
 :host ::ng-deep .p-panel-header {
-    background-color: var(--blue-500);
-    border-color: var(--blue-500);
+    background-color: var(--surface-600);
+    border-color: var(--surface-600);
     color: #ffffff;
 }
 
 :host ::ng-deep .p-panel-content {
-    border-color: var(--blue-500);
+    border-color: var(--surface-600);
 }
 
 .card {
