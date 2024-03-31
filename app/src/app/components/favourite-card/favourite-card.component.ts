@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NgprimeModule } from '../../primeng/ngprime/ngprime.module';
 import { Movies, Serie } from '../../interfaces/media.interface';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-favourite-card',
@@ -11,12 +12,13 @@ import { Movies, Serie } from '../../interfaces/media.interface';
 })
 export class FavouriteCardComponent {
   @Input() item!: Movies | Serie;
-  @Input() folder!: string;
+  @Output() remove = new EventEmitter<string>();
 
   constructor() {}
 
   onDeleteFavourite(title: string) {
-    localStorage.removeItem(title);
-    window.location.reload();
+    /* localStorage.removeItem(title); */
+    /* window.location.reload(); */
+    this.remove.emit(title);
   }
 }

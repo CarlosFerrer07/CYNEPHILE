@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Movies, Serie } from '../../interfaces/media.interface';
 import { FavouriteCardComponent } from '../../components/favourite-card/favourite-card.component';
+import { NgprimeModule } from '../../primeng/ngprime/ngprime.module';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-my-list',
   standalone: true,
-  imports: [FavouriteCardComponent],
+  imports: [FavouriteCardComponent, NgprimeModule, RouterLink],
   templateUrl: './my-list.component.html',
   styleUrl: './my-list.component.scss',
 })
@@ -19,6 +21,7 @@ export class MyListComponent implements OnInit {
   }
 
   getMedia() {
+    this.media = [];
     Object.keys(localStorage).map((key) => {
       const serializedMedia = localStorage.getItem(key);
       if (serializedMedia) {
@@ -29,5 +32,10 @@ export class MyListComponent implements OnInit {
         console.log('No se han encontrado peliculas en favoritos');
       }
     });
+  }
+
+  onDeleteFavourite(title: string) {
+    localStorage.removeItem(title);
+    this.getMedia();
   }
 }
