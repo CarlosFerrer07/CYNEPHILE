@@ -19,7 +19,7 @@ export class MediaService {
 
   public getMediaById(id: number): Observable<Serie | Movies> {
     return this.http.get<Serie | Movies>(
-      'http://localhost:8000/getMediaById/' + id
+      `http://localhost:8000/getMediaById/${id}`
     );
   }
 }
