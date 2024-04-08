@@ -13,7 +13,7 @@ use App\Repository\MediaRepository;
 
 class MediaController extends AbstractController
 {
-    #[Route('/getAllMedia', name: 'app_media', methods:['get'])]
+    #[Route('/getAllMedia', name: 'app_media', methods: ['get'])]
     public function media(ManagerRegistry $doctrine): JsonResponse
     {
         $allMedia = $doctrine
@@ -31,20 +31,18 @@ class MediaController extends AbstractController
                 'duration' => $media->getDuration(),
                 'country' => $media->getCountry(),
                 'score' => $media->getScore(),
-                'synopsis'=>$media->getSynopsis(),
-                'cast'=>$media->getCast(),
-                'type'=> $media->getType(),
+                'synopsis' => $media->getSynopsis(),
+                'cast' => $media->getCast(),
+                'type' => $media->getType(),
                 'poster' => $media->getPoster(),
                 'director' => $media->getDirector()
             ];
         }
 
         return $this->json($data);
-
-
     }
 
-    #[Route('/getAllMovies', name: 'app_movies', methods:['get'])]
+    #[Route('/getAllMovies', name: 'app_movies', methods: ['get'])]
     public function getAllMovies(ManagerRegistry $doctrine): JsonResponse
     {
         $allMovies = $doctrine
@@ -62,20 +60,18 @@ class MediaController extends AbstractController
                 'duration' => $media->getDuration(),
                 'country' => $media->getCountry(),
                 'score' => $media->getScore(),
-                'synopsis'=>$media->getSynopsis(),
-                'cast'=>$media->getCast(),
-                'type'=> $media->getType(),
+                'synopsis' => $media->getSynopsis(),
+                'cast' => $media->getCast(),
+                'type' => $media->getType(),
                 'poster' => $media->getPoster(),
                 'director' => $media->getDirector()
             ];
         }
 
         return $this->json($dataMovies);
-
-
     }
 
-    #[Route('/getAllSeries', name: 'app_series', methods:['get'])]
+    #[Route('/getAllSeries', name: 'app_series', methods: ['get'])]
     public function getAllSeries(ManagerRegistry $doctrine): JsonResponse
     {
         $allSeries = $doctrine
@@ -93,18 +89,47 @@ class MediaController extends AbstractController
                 'duration' => $media->getDuration(),
                 'country' => $media->getCountry(),
                 'score' => $media->getScore(),
-                'synopsis'=>$media->getSynopsis(),
-                'cast'=>$media->getCast(),
-                'type'=> $media->getType(),
+                'synopsis' => $media->getSynopsis(),
+                'cast' => $media->getCast(),
+                'type' => $media->getType(),
                 'poster' => $media->getPoster(),
                 'director' => $media->getDirector()
             ];
         }
 
         return $this->json($dataSeries);
-
-
     }
 
+    #[Route('/getMediaById/{id}', name: 'app_media_by_id', methods: ['get'])]
+    public function getMediaById(ManagerRegistry $doctrine, int $id)
+    {
+        $media = $doctrine
+            ->getRepository(Media::class)
+            ->find($id);
 
+
+        if (!$media) {
+
+            return $this->json(['error' => 'Media not found'], 404);
+        }
+
+
+        $dataMedia = [
+            'id' => $media->getId(),
+            'title' => $media->getTitle(),
+            'gender' => $media->getGender(),
+            'year' => $media->getYear(),
+            'duration' => $media->getDuration(),
+            'country' => $media->getCountry(),
+            'score' => $media->getScore(),
+            'synopsis' => $media->getSynopsis(),
+            'cast' => $media->getCast(),
+            'type' => $media->getType(),
+            'poster' => $media->getPoster(),
+            'director' => $media->getDirector()
+        ];
+
+
+        return $this->json($dataMedia);
+    }
 }

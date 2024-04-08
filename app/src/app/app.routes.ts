@@ -3,6 +3,7 @@ import { MyListComponent } from './views/my-list/my-list.component';
 import { InicioComponent } from './views/inicio/inicio.component';
 import { SeriesComponent } from './views/series/series.component';
 import { MoviesComponent } from './views/movies/movies.component';
+import { DetailComponent } from './components/detail/detail.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'init', pathMatch: 'full' },
@@ -10,4 +11,5 @@ export const routes: Routes = [
   { path: 'series', component: SeriesComponent },
   { path: 'movies', component: MoviesComponent },
   { path: 'myList', component: MyListComponent },
+  { path: 'detail/:id', component: DetailComponent },
 ];

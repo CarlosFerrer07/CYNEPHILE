@@ -13,6 +13,8 @@
     neque quas!
   </p> -->
   <ng-template pTemplate="footer">
-    <p-button label="Saber más"></p-button>
+    <a [routerLink]="['/detail', item.id]">
+      <p-button label="Saber más"></p-button>
+    </a>
   </ng-template>
 </p-card>

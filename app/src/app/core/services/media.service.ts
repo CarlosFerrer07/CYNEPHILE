@@ -4,19 +4,22 @@ import { Observable } from 'rxjs';
 import { Movies, Serie } from '../../interfaces/media.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MediaService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  public getAllMovies():Observable<Movies[]> {
+  public getAllMovies(): Observable<Movies[]> {
     return this.http.get<Movies[]>('http://localhost:8000/getAllMovies');
   }
 
-  public getAllSeries():Observable<Serie[]> {
-    return this.http.get<Serie[]>('http://localhost:8000/getAllSeries')
+  public getAllSeries(): Observable<Serie[]> {
+    return this.http.get<Serie[]>('http://localhost:8000/getAllSeries');
   }
 
-
+  public getMediaById(id: number): Observable<Serie | Movies> {
+    return this.http.get<Serie | Movies>(
+      'http://localhost:8000/getMediaById/' + id
+    );
+  }
 }
