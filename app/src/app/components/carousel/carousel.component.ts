@@ -15,8 +15,16 @@ export class CarouselComponent {
   @Input() media: Movies[] | Serie[] = [];
   @Input() type: string = '';
 
+  visible: boolean = false;
+  mediaForDialog!: Movies | Serie;
+
   onFavourite(media: Movies | Serie) {
     const serializedMedia = JSON.stringify(media);
     localStorage.setItem(media.title, serializedMedia);
+  }
+
+  showDialog(media: Movies | Serie) {
+    this.visible = true;
+    this.mediaForDialog = media;
   }
 }

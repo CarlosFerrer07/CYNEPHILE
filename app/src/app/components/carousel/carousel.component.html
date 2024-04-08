@@ -25,10 +25,9 @@
             <div
               class="mt-5 flex align-items-center justify-content-center gap-2"
             >
-              <p-button icon="pi pi-search" [rounded]="true" />
+              <p-button icon="pi pi-search" (click)="showDialog(media)" />
               <p-button
                 icon="pi pi-star-fill"
-                [rounded]="true"
                 severity="secondary"
                 (click)="onFavourite(media)"
               />
@@ -39,3 +38,22 @@
     </p-carousel>
   </p-panel>
 </div>
+
+@if (mediaForDialog) {
+<div class="card flex justify-content-center">
+  <p-dialog
+    header="{{ mediaForDialog.title }}"
+    [(visible)]="visible"
+    [style]="{ width: '50vw' }"
+  >
+    <p>
+      <strong>Reparto</strong>
+      {{ mediaForDialog.cast }}
+    </p>
+    <p>
+      <strong>Sinopsis</strong>
+      {{ mediaForDialog.synopsis }}
+    </p>
+  </p-dialog>
+</div>
+}

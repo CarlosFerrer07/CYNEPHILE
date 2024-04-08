@@ -9,6 +9,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
 import { PanelModule } from 'primeng/panel';
 import { PaginatorModule } from 'primeng/paginator';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [],
@@ -23,6 +24,7 @@ import { PaginatorModule } from 'primeng/paginator';
     TagModule,
     PanelModule,
     PaginatorModule,
+    DialogModule,
   ],
 })
 export class NgprimeModule {}
