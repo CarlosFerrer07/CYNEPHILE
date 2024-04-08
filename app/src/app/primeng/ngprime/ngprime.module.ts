@@ -10,6 +10,7 @@ import { TagModule } from 'primeng/tag';
 import { PanelModule } from 'primeng/panel';
 import { PaginatorModule } from 'primeng/paginator';
 import { DialogModule } from 'primeng/dialog';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [],
@@ -25,6 +26,7 @@ import { DialogModule } from 'primeng/dialog';
     PanelModule,
     PaginatorModule,
     DialogModule,
+    ProgressSpinnerModule,
   ],
 })
 export class NgprimeModule {}
