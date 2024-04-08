@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MediaService } from '../../core/services/media.service';
+import { Movies, Serie } from '../../interfaces/media.interface';
 
 @Component({
   selector: 'app-detail',
@@ -10,6 +11,8 @@ import { MediaService } from '../../core/services/media.service';
   styleUrl: './detail.component.scss',
 })
 export class DetailComponent {
+  public media!: Movies | Serie;
+
   constructor(private route: ActivatedRoute, private mediaSvc: MediaService) {}
 
   ngOnInit(): void {
@@ -17,7 +20,8 @@ export class DetailComponent {
     const id = this.route.snapshot.paramMap.get('id');
     if (id !== null) {
       this.mediaSvc.getMediaById(Number(id)).subscribe((item) => {
-        console.log(item);
+        this.media = item;
+        console.log(this.media);
       });
     }
   }

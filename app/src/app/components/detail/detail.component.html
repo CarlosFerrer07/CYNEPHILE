@@ -1,1 +1,26 @@
-<p>detail works!</p>
+@if (media) {
+<div class="container" style="margin-top: 200px">
+  <div class="row">
+    <div class="col-lg-6 col-sm-12">
+      <img
+        src="../../../assets/img/media/{{ media.poster }}"
+        alt="{{ media.title }}"
+        class="img-fluid img-media"
+      />
+    </div>
+    <div class="col-lg-6 col-sm-12">
+      <h2>{{ media.title }}</h2>
+      <p><strong>Género:</strong> {{ media.gender }}</p>
+      <p><strong>Año:</strong> {{ media.year }}</p>
+      <p><strong>Duración:</strong> {{ media.duration }}</p>
+      <p><strong>País:</strong> {{ media.country }}</p>
+      <p><strong>Puntuación:</strong> {{ media.score }}</p>
+      <p><strong>Director:</strong> {{ media.director }}</p>
+      <h3>Reparto:</h3>
+      <p>{{ media.cast }}</p>
+      <h3>Sinopsis:</h3>
+      <p>{{ media.synopsis }}</p>
+    </div>
+  </div>
+</div>
+}
