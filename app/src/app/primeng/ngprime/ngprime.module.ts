@@ -11,6 +11,9 @@ import { PanelModule } from 'primeng/panel';
 import { PaginatorModule } from 'primeng/paginator';
 import { DialogModule } from 'primeng/dialog';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { DividerModule } from 'primeng/divider';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
 
 @NgModule({
   declarations: [],
@@ -27,6 +30,9 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     PaginatorModule,
     DialogModule,
     ProgressSpinnerModule,
+    DividerModule,
+    InputTextModule,
+    PasswordModule,
   ],
 })
 export class NgprimeModule {}
