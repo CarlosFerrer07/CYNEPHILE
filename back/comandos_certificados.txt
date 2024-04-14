@@ -1,0 +1,2 @@
+openssl genpey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa  (certificado privado)
+openssl pkey -in config/jwt/private.pem -out config/jwt/public.pem -pubout  (certificado publico)
