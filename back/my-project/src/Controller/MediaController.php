@@ -13,7 +13,7 @@ use App\Repository\MediaRepository;
 
 class MediaController extends AbstractController
 {
-    #[Route('/getAllMedia', name: 'app_media', methods: ['get'])]
+    #[Route('api/getAllMedia', name: 'app_media', methods: ['get'])]
     public function media(ManagerRegistry $doctrine): JsonResponse
     {
         $allMedia = $doctrine
@@ -42,7 +42,7 @@ class MediaController extends AbstractController
         return $this->json($data);
     }
 
-    #[Route('/getAllMovies', name: 'app_movies', methods: ['get'])]
+    #[Route('/api/getAllMovies', name: 'app_movies', methods: ['get'])]
     public function getAllMovies(ManagerRegistry $doctrine): JsonResponse
     {
         $allMovies = $doctrine
@@ -71,7 +71,7 @@ class MediaController extends AbstractController
         return $this->json($dataMovies);
     }
 
-    #[Route('/getAllSeries', name: 'app_series', methods: ['get'])]
+    #[Route('/api/getAllSeries', name: 'app_series', methods: ['get'])]
     public function getAllSeries(ManagerRegistry $doctrine): JsonResponse
     {
         $allSeries = $doctrine
@@ -100,7 +100,7 @@ class MediaController extends AbstractController
         return $this->json($dataSeries);
     }
 
-    #[Route('/getMediaById/{id}', name: 'app_media_by_id', methods: ['get'])]
+    #[Route('/api/getMediaById/{id}', name: 'app_media_by_id', methods: ['get'])]
     public function getMediaById(ManagerRegistry $doctrine, int $id)
     {
         $media = $doctrine
