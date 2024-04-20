@@ -5,11 +5,12 @@ import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { spinnerInterceptor } from './core/interceptors/spinner.interceptor';
+import { tokenInterceptor } from './core/interceptors/token.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideAnimationsAsync(),
-    provideHttpClient(withInterceptors([spinnerInterceptor])),
+    provideHttpClient(withInterceptors([spinnerInterceptor, tokenInterceptor])),
   ],
 };

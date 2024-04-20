@@ -22,14 +22,17 @@ export class MyListComponent implements OnInit {
 
   getMedia() {
     this.media = [];
+
     Object.keys(localStorage).map((key) => {
-      const serializedMedia = localStorage.getItem(key);
-      if (serializedMedia) {
-        const media = JSON.parse(serializedMedia);
-        this.media.push(media);
-        console.log(this.media);
-      } else {
-        console.log('No se han encontrado peliculas en favoritos');
+      if (key !== 'token') {
+        const serializedMedia = localStorage.getItem(key);
+        if (serializedMedia) {
+          const media = JSON.parse(serializedMedia);
+          this.media.push(media);
+          console.log(this.media);
+        } else {
+          console.log('No se han encontrado peliculas en favoritos');
+        }
       }
     });
   }

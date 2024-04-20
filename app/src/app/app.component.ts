@@ -3,11 +3,17 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { Router, NavigationEnd } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, SpinnerComponent],
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    SpinnerComponent,
+    ReactiveFormsModule,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

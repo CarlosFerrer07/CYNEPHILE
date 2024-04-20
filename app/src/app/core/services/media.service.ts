@@ -10,16 +10,16 @@ export class MediaService {
   constructor(private http: HttpClient) {}
 
   public getAllMovies(): Observable<Movies[]> {
-    return this.http.get<Movies[]>('http://localhost:8000/getAllMovies');
+    return this.http.get<Movies[]>('http://localhost:8000/api/getAllMovies');
   }
 
   public getAllSeries(): Observable<Serie[]> {
-    return this.http.get<Serie[]>('http://localhost:8000/getAllSeries');
+    return this.http.get<Serie[]>('http://localhost:8000/api/getAllSeries');
   }
 
   public getMediaById(id: number): Observable<Serie | Movies> {
     return this.http.get<Serie | Movies>(
-      `http://localhost:8000/getMediaById/${id}`
+      `http://localhost:8000/api/getMediaById/${id}`
     );
   }
 }
