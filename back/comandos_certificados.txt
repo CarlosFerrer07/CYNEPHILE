@@ -1,2 +1,5 @@
 openssl genpey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa  (certificado privado)
 openssl pkey -in config/jwt/private.pem -out config/jwt/public.pem -pubout  (certificado publico)
+
+C:\> curl -X POST -H "Content-Type: application/json" http://localhost:8000/api/login_check --data {\"username\":\"carlos@gmail.com\",\"password\":\"secret\"}
+php bin/console lexik:jwt:generate-keypair
