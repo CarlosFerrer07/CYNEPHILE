@@ -8,11 +8,15 @@ import { routesGuard } from './core/guards/routes.guard';
 import { LoginComponent } from './views/login/login.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'init', pathMatch: 'full' },
-  { path: 'init', component: InicioComponent },
-  { path: 'series', component: SeriesComponent },
-  { path: 'movies', component: MoviesComponent },
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
+  { path: 'init', component: InicioComponent, canActivate: [routesGuard] },
+  { path: 'series', component: SeriesComponent, canActivate: [routesGuard] },
+  { path: 'movies', component: MoviesComponent, canActivate: [routesGuard] },
   { path: 'myList', component: MyListComponent, canActivate: [routesGuard] },
-  { path: 'detail/:id', component: DetailComponent },
-  { path: 'login', component: LoginComponent },
+  {
+    path: 'detail/:id',
+    component: DetailComponent,
+    canActivate: [routesGuard],
+  },
+  { path: 'auth', component: LoginComponent },
 ];

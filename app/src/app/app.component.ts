@@ -19,13 +19,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class AppComponent {
   title = 'app';
-  isLoginPage: boolean = false;
+  showNavigationBar: boolean = true;
 
-  constructor(private router: Router) {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.isLoginPage = event.url === '/login';
-      }
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.showNavigationBar = this.router.url !== '/auth';
+
+    this.router.events.subscribe(() => {
+      this.showNavigationBar = this.router.url !== '/auth';
     });
   }
 }
