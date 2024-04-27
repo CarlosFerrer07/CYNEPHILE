@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav me-auto mb-2 mt-2 mb-lg-0">
         <li class="nav-item">
-          <a class="navbar-item" href="#">
+          <a class="navbar-item" routerLink="/init">
             <img
               src="../../../assets/img/logo/logo.png"
               alt="Logo"
@@ -31,6 +31,11 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/myList">Mi lista</a>
+        </li>
+        <li class="nav-item">
+          <u style="color: white"
+            ><a class="nav-link" (click)="logOut()">Log Out</a></u
+          >
         </li>
       </ul>
     </div>
