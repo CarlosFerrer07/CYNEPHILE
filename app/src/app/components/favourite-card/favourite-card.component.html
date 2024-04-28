@@ -7,6 +7,9 @@
     />
   </ng-template>
   <ng-template pTemplate="footer">
+    <a [routerLink]="['/detail', item.id]">
+      <p-button label="Saber más"></p-button>
+    </a>
     <p-button
       icon="pi pi-times"
       [rounded]="true"
