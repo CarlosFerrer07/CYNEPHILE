@@ -34,4 +34,17 @@ export class SecurityService {
         }
       );
   }
+
+  register(body: any) {
+    return this.http.post('http://localhost:8000/registro  ', body).subscribe(
+      (res: any) => {
+        console.log(res);
+
+        this.router.navigate(['/auth']);
+      },
+      (error) => {
+        console.log('Error al insertar usuario:', error);
+      }
+    );
+  }
 }

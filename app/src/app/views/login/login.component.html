@@ -55,7 +55,7 @@
       <div class="card">
         <div class="card-header">Register</div>
         <div class="card-body">
-          <form>
+          <form [formGroup]="registerForm" (ngSubmit)="register()">
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>
               <input
@@ -64,6 +64,7 @@
                 id="email"
                 name="email"
                 placeholder="example@gmail.com"
+                formControlName="username"
               />
             </div>
             <div class="mb-3">
@@ -74,9 +75,20 @@
                 id="password"
                 name="password"
                 placeholder="Enter password"
+                formControlName="password"
               />
             </div>
-            <button type="submit" class="btn btn-primary">register</button>
+
+            <div class="row">
+              <div class="col-lg-9">
+                <button type="submit" class="btn btn-primary">register</button>
+              </div>
+              <div class="col-lg-3">
+                <p>
+                  <u (click)="showLogin()">Volver al login</u>
+                </p>
+              </div>
+            </div>
           </form>
         </div>
       </div>

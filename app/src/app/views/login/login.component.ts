@@ -20,13 +20,27 @@ export class LoginComponent {
     password: new FormControl(''),
   });
 
+  registerForm = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl(''),
+  });
+
   showRegister() {
     this.chooseRegister = true;
   }
 
+  showLogin() {
+    this.chooseRegister = false;
+  }
+
   login() {
-    console.log(this.loginForm.value);
     let bodyLogin = this.loginForm.value;
     this.securitySvc.login(bodyLogin);
+  }
+
+  register() {
+    let bodyRegister = this.registerForm.value;
+
+    this.securitySvc.register(bodyRegister);
   }
 }
