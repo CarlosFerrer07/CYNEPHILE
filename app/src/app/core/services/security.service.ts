@@ -1,11 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 @Injectable({
   providedIn: 'root',
 })
 export class SecurityService {
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private messageService: MessageService
+  ) {}
 
   createUser(body: any) {
     return this.http.post('http://localhost:8000/registro', body).subscribe(
@@ -25,12 +30,15 @@ export class SecurityService {
         (res: any) => {
           if (typeof res.token === 'string') {
             window.localStorage.setItem('token', res.token);
-            console.log('Token almacenado:', res.token);
             this.router.navigate(['/init']);
           }
         },
         (error) => {
-          console.log('Error al logearte:', error);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error de login',
+            detail: 'Usuario o contraseña incorrectos',
+          });
         }
       );
   }
@@ -43,7 +51,11 @@ export class SecurityService {
         this.router.navigate(['/auth']);
       },
       (error) => {
-        console.log('Error al insertar usuario:', error);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error de registro',
+          detail: 'Por favor inserte usuario y contraseña',
+        });
       }
     );
   }

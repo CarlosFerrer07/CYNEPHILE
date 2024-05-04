@@ -14,6 +14,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { DividerModule } from 'primeng/divider';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [],
@@ -33,6 +34,7 @@ import { PasswordModule } from 'primeng/password';
     DividerModule,
     InputTextModule,
     PasswordModule,
+    ToastModule,
   ],
 })
 export class NgprimeModule {}
