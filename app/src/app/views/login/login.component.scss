@@ -1,3 +1,13 @@
+.card {
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)
+}
+
+.card-header {
+    background-color: var(--surface-600);
+    color: white;
+}
+
+
 button, button:hover {
     background-color: var(--surface-600);
 }
