@@ -13,8 +13,6 @@ export class CommentsService {
   ) {}
 
   insertComment(body: any) {
-    console.log('Cuerpo que le pasamos a la API:', JSON.stringify(body));
-
     return this.http.post('http://localhost:8000/comentarios', body).subscribe(
       (res: any) => {
         this.messageService.add({

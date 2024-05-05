@@ -5,10 +5,11 @@ import { Movies, Serie } from '../../interfaces/media.interface';
 import { ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
 import { jwtDecode } from 'jwt-decode';
 import { CommentsService } from '../../core/services/comments.service';
+import { NgprimeModule } from '../../primeng/ngprime/ngprime.module';
 @Component({
   selector: 'app-detail',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgprimeModule],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.scss',
 })
