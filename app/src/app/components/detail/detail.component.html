@@ -20,6 +20,37 @@
       <p>{{ media.cast }}</p>
       <h3>Sinopsis:</h3>
       <p>{{ media.synopsis }}</p>
+      <div>
+        <form [formGroup]="comentariosForm" (ngSubmit)="onSubmit()">
+          <label for="comentario">Deje su comentario!</label>
+          <textarea
+            class="form-control"
+            id="comentario"
+            rows="3"
+            formControlName="comentario"
+          ></textarea>
+          @if (show) {
+
+          <label for="gmail">Correo electrónico:</label>
+          <input
+            type="email"
+            class="form-control"
+            id="gmail"
+            formControlName="gmail"
+          />
+
+          <label for="idMedia">ID de la película:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="idMedia"
+            formControlName="idMedia"
+          />
+          }
+
+          <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
