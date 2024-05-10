@@ -45,7 +45,11 @@
   <p-dialog
     header="{{ mediaForDialog.title }}"
     [(visible)]="visible"
+    [modal]="true"
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
     [style]="{ width: '50vw' }"
+    [draggable]="false"
+    [resizable]="false"
   >
     <p>
       <strong>Reparto</strong>
