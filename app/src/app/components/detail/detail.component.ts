@@ -6,6 +6,7 @@ import { ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
 import { jwtDecode } from 'jwt-decode';
 import { CommentsService } from '../../core/services/comments.service';
 import { NgprimeModule } from '../../primeng/ngprime/ngprime.module';
+import { Comment } from '../../interfaces/coment.interface';
 @Component({
   selector: 'app-detail',
   standalone: true,
@@ -17,7 +18,8 @@ export class DetailComponent {
   public media!: Movies | Serie;
   public urlId: any = this.route.snapshot.paramMap.get('id');
   public show: boolean = false;
-  public comments: any[] = [];
+  public comments: Comment[] = [];
+  public visible: boolean = false;
   /* public gmail: string | null = this.getUserName(); */
 
   constructor(
@@ -64,8 +66,10 @@ export class DetailComponent {
   }
 
   getComments(id: any) {
-    this.comentarioSvc.getComments(id).subscribe((comments) => {
-      console.log(comments);
+    this.comments = [];
+    this.visible = true;
+    this.comentarioSvc.getComments(id).subscribe((comments: any) => {
+      this.comments = comments;
     });
   }
 }

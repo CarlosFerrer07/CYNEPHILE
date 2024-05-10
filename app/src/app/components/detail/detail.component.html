@@ -66,4 +66,38 @@
   </div>
 </div>
 }
+
+<div class="card flex justify-content-center">
+  <p-dialog
+    header="COMENTARIOS"
+    [(visible)]="visible"
+    [modal]="true"
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+    [style]="{ width: '90vw' }"
+    [draggable]="false"
+    [resizable]="false"
+    [maximizable]="true"
+  >
+    @for (comment of comments; track $index) {
+    <div
+      style="
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+      "
+    >
+      <p style="margin-bottom: 5px">
+        <q>{{ comment.comentario }}</q>
+      </p>
+      <p style="color: #666; font-size: 14px">
+        {{ comment.gmail.split("@")[0] }}
+      </p>
+    </div>
+    <hr style="border-color: #ccc; margin-top: 10px; margin-bottom: 0" />
+    }
+  </p-dialog>
+</div>
+
 <p-toast [position]="'top-center'"></p-toast>
