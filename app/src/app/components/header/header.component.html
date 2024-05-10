@@ -32,12 +32,14 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/myList">Mi lista</a>
         </li>
-        <li class="nav-item">
-          <u style="color: white"
-            ><a class="nav-link" (click)="logOut()">Log Out</a></u
-          >
-        </li>
       </ul>
+
+      <span
+        class="pi pi-sign-out"
+        (click)="logOut()"
+        style="font-size: 1.5rem; color: white"
+      ></span>
     </div>
   </div>
+  <div></div>
 </nav>
