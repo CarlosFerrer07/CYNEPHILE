@@ -15,7 +15,9 @@ import { NgprimeModule } from '../../primeng/ngprime/ngprime.module';
 })
 export class DetailComponent {
   public media!: Movies | Serie;
+  public urlId: any = this.route.snapshot.paramMap.get('id');
   public show: boolean = false;
+  public comments: any[] = [];
   /* public gmail: string | null = this.getUserName(); */
 
   constructor(
@@ -31,16 +33,14 @@ export class DetailComponent {
   });
 
   ngOnInit(): void {
-    // Recuperamos la id de la url
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id !== null) {
-      this.mediaSvc.getMediaById(Number(id)).subscribe((item) => {
+    if (this.urlId !== null) {
+      this.mediaSvc.getMediaById(Number(this.urlId)).subscribe((item) => {
         this.media = item;
       });
     }
 
     this.comentariosForm.controls['gmail'].setValue(this.getUserName());
-    this.comentariosForm.controls['idMedia'].setValue(id);
+    this.comentariosForm.controls['idMedia'].setValue(this.urlId);
 
     this.getUserName();
   }
@@ -61,5 +61,11 @@ export class DetailComponent {
     } else {
       return null;
     }
+  }
+
+  getComments(id: any) {
+    this.comentarioSvc.getComments(id).subscribe((comments) => {
+      console.log(comments);
+    });
   }
 }

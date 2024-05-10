@@ -20,6 +20,11 @@
       <p>{{ media.cast }}</p>
       <h3>Sinopsis:</h3>
       <p>{{ media.synopsis }}</p>
+      <div style="margin-top: 5%; margin-bottom: 5%">
+        <button (click)="getComments(urlId)" class="btn btn-primary">
+          Ver Comentarios
+        </button>
+      </div>
       <div>
         <form [formGroup]="comentariosForm" (ngSubmit)="onSubmit()">
           <label for="comentario">Deje su comentario!</label>
@@ -48,12 +53,17 @@
           />
           }
 
-          <button type="submit" class="btn btn-primary">Agregar</button>
+          <button
+            style="margin-bottom: 5%; margin-top: 3%"
+            type="submit"
+            class="btn btn-primary"
+          >
+            Agregar
+          </button>
         </form>
       </div>
     </div>
   </div>
 </div>
 }
-
 <p-toast [position]="'top-center'"></p-toast>

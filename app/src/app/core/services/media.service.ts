@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Movies, Serie } from '../../interfaces/media.interface';
 
@@ -18,8 +18,10 @@ export class MediaService {
   }
 
   public getMediaById(id: number): Observable<Serie | Movies> {
+    const params = new HttpParams().set('id', id.toString());
     return this.http.get<Serie | Movies>(
-      `http://localhost:8000/api/getMediaById/${id}`
+      `http://localhost:8000/api/getMediaById`,
+      { params: params }
     );
   }
 }

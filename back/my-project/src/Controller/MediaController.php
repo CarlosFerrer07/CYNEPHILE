@@ -100,9 +100,10 @@ class MediaController extends AbstractController
         return $this->json($dataSeries);
     }
 
-    #[Route('/api/getMediaById/{id}', name: 'app_media_by_id', methods: ['get'])]
-    public function getMediaById(ManagerRegistry $doctrine, int $id)
+    #[Route('/api/getMediaById', name: 'app_media_by_id', methods: ['get'])]
+    public function getMediaById(Request $request, ManagerRegistry $doctrine)
     {
+        $id = $request->query->get('id');
         $media = $doctrine
             ->getRepository(Media::class)
             ->find($id);

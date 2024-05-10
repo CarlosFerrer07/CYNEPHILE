@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
@@ -29,5 +29,12 @@ export class CommentsService {
         });
       }
     );
+  }
+
+  getComments(id: number) {
+    const params = new HttpParams().set('id', id.toString());
+    return this.http.get(`http://localhost:8000/api/getCommentById`, {
+      params: params,
+    });
   }
 }
