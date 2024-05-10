@@ -91,13 +91,14 @@
       <p style="margin-bottom: 5px">
         <q>{{ comment.comentario }}</q>
       </p>
-      <p style="color: #666; font-size: 14px">
-        {{ comment.gmail.split("@")[0] }}
+      <p
+        style="color: #666; background-color: var(--blue-100); font-size: 14px"
+      >
+        {{ comment.gmail.split("@")[0].toLocaleUpperCase() }}
       </p>
     </div>
     <hr style="border-color: #ccc; margin-top: 10px; margin-bottom: 0" />
     }
   </p-dialog>
 </div>
-
 <p-toast [position]="'top-center'"></p-toast>
