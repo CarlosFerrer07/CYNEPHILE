@@ -46,7 +46,11 @@ export class SecurityService {
   register(body: any) {
     return this.http.post('http://localhost:8000/registro  ', body).subscribe(
       (res: any) => {
-        console.log(res);
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Usuario registrado',
+          detail: 'Usuario registrado con exito',
+        });
 
         this.router.navigate(['/auth']);
       },
