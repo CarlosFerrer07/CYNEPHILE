@@ -52,6 +52,7 @@ export class LoginComponent {
     if (this.registerForm.valid) {
       this.securitySvc.register(bodyRegister);
       this.registerForm.reset();
+      this.loginForm.reset();
       this.chooseRegister = false;
     } else {
       this.messageService.add({
