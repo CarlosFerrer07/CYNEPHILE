@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
 import { NgprimeModule } from '../../primeng/ngprime/ngprime.module';
-import { ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { SecurityService } from '../../core/services/security.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +17,10 @@ import { SecurityService } from '../../core/services/security.service';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  constructor(private securitySvc: SecurityService) {}
+  constructor(
+    private securitySvc: SecurityService,
+    private messageService: MessageService
+  ) {}
 
   chooseRegister: boolean = false;
 
@@ -21,8 +30,8 @@ export class LoginComponent {
   });
 
   registerForm = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
+    username: new FormControl('', Validators['required']),
+    password: new FormControl('', Validators['required']),
   });
 
   showRegister() {
@@ -40,7 +49,16 @@ export class LoginComponent {
 
   register() {
     let bodyRegister = this.registerForm.value;
-
-    this.securitySvc.register(bodyRegister);
+    if (this.registerForm.valid) {
+      this.securitySvc.register(bodyRegister);
+      this.registerForm.reset();
+      this.chooseRegister = false;
+    } else {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error de registro',
+        detail: 'Por favor inserte usuario y contraseña',
+      });
+    }
   }
 }
