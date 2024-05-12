@@ -7,36 +7,34 @@
         <div class="card-header">Login</div>
         <div class="card-body">
           <form [formGroup]="loginForm" (ngSubmit)="login()">
-            <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email"
-                name="email"
-                placeholder="example@gmail.com"
-                formControlName="username"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="password"
-                name="password"
-                placeholder="Enter password"
-                formControlName="password"
-              />
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <label for="email" class="form-label">Email</label><br />
+                <input
+                  pInputText
+                  id="username"
+                  aria-describedby="username-help"
+                  placeholder="example@gmail.com"
+                  formControlName="username"
+                  class="form-control"
+                />
+              </div>
             </div>
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-md-12 mb-3">
+                <label for="password" class="form-label">Password</label><br />
+                <p-password [toggleMask]="true" formControlName="password" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
                 <button type="submit" class="btn btn-primary">Login</button>
               </div>
-              <div class="col-lg-6">
+              <div class="col-md-6">
                 <p>
                   ¿Aún no estás registrado?
-                  <u (click)="showRegister()">Registrate</u>
+                  <u (click)="showRegister()">Regístrate</u>
                 </p>
               </div>
             </div>
@@ -55,29 +53,24 @@
         <div class="card-header">Register</div>
         <div class="card-body">
           <form [formGroup]="registerForm" (ngSubmit)="register()">
-            <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email"
-                name="email"
-                placeholder="example@gmail.com"
-                formControlName="username"
-                required
-              />
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <label for="email" class="form-label">Email</label><br />
+                <input
+                  pInputText
+                  id="username"
+                  aria-describedby="username-help"
+                  placeholder="example@gmail.com"
+                  formControlName="username"
+                  class="form-control"
+                />
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="password"
-                name="password"
-                placeholder="Enter password"
-                formControlName="password"
-                required
-              />
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <label for="password" class="form-label">Password</label><br />
+                <p-password [toggleMask]="true" formControlName="password" />
+              </div>
             </div>
 
             <div class="row">
