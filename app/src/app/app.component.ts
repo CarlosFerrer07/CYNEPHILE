@@ -25,7 +25,6 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.showNavigationBar = this.router.url !== '/auth';
-
     this.router.events.subscribe(() => {
       this.showNavigationBar = this.router.url !== '/auth';
     });
