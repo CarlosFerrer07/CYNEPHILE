@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { environment } from '../../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
@@ -13,7 +14,7 @@ export class SecurityService {
   ) {}
 
   createUser(body: any) {
-    return this.http.post('http://localhost:8000/registro', body).subscribe(
+    return this.http.post(environment.apiUrl + '/registro', body).subscribe(
       (res) => {
         console.log('Éxito al insertar usuario:', res);
       },
@@ -25,7 +26,7 @@ export class SecurityService {
 
   login(body: any) {
     return this.http
-      .post('http://localhost:8000/api/login_check  ', body)
+      .post(environment.apiUrl + '/api/login_check  ', body)
       .subscribe(
         (res: any) => {
           if (typeof res.token === 'string') {
@@ -44,7 +45,7 @@ export class SecurityService {
   }
 
   register(body: any) {
-    return this.http.post('http://localhost:8000/registro  ', body).subscribe(
+    return this.http.post(environment.apiUrl + '/registro  ', body).subscribe(
       (res: any) => {
         this.messageService.add({
           severity: 'success',
