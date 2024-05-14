@@ -1,5 +1,5 @@
 @if (!chooseRegister) {
-<div style="margin-top: 200px"></div>
+<div style="margin-top: 100px"></div>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
@@ -8,20 +8,18 @@
         <div class="card-body">
           <form [formGroup]="loginForm" (ngSubmit)="login()">
             <div class="row">
-              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 mb-3">
-                <label for="email" class="form-label">Email</label><br />
+              <div class="col-md-7 mb-3">
+                <label for="email" class="form-label">Email:</label><br />
                 <input
                   pInputText
                   id="username"
                   aria-describedby="username-help"
                   placeholder="example@gmail.com"
                   formControlName="username"
-                  [ngStyle]="{ width: '97%' }"
+                  [ngStyle]="{ width: '95%' }"
                 />
               </div>
-              <div
-                class="col-xs-6 col-sm-6 col-md-6 col-lg-6 mb-3 d-flex align-items-center justify-content-end"
-              >
+              <div class="col-md-5 mb-3 d-flex justify-content-end">
                 <img
                   src="../../../assets/img/logo.png"
                   style="width: 100px; height: 100px"
@@ -30,17 +28,18 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-12 mb-3">
-                <label for="password" class="form-label">Password</label><br />
+              <div class="col-md-7 mb-3">
+                <label for="password" class="form-label">Contraseña:</label
+                ><br />
                 <p-password [toggleMask]="true" formControlName="password" />
               </div>
             </div>
 
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-5">
                 <button type="submit" class="btn btn-primary">Login</button>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-7">
                 <p>
                   ¿Aún no estás registrado?
                   <u (click)="showRegister()">Regístrate</u>
@@ -54,29 +53,27 @@
   </div>
 </div>
 } @else {
-<div style="margin-top: 200px"></div>
+<div style="margin-top: 100px"></div>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card">
-        <div class="card-header">Register</div>
+        <div class="card-header">Registro</div>
         <div class="card-body">
           <form [formGroup]="registerForm" (ngSubmit)="register()">
             <div class="row">
-              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 mb-3">
-                <label for="email" class="form-label">Email</label><br />
+              <div class="col-md-7 mb-3">
+                <label for="email" class="form-label">Email:</label><br />
                 <input
                   pInputText
                   id="username"
                   aria-describedby="username-help"
                   placeholder="example@gmail.com"
                   formControlName="username"
-                  [ngStyle]="{ width: '97%' }"
+                  [ngStyle]="{ width: '95%' }"
                 />
               </div>
-              <div
-                class="col-xs-6 col-sm-6 col-md-6 col-lg-6 mb-3 d-flex align-items-center justify-content-end"
-              >
+              <div class="col-md-5 mb-3 d-flex justify-content-end">
                 <img
                   src="../../../assets/img/logo.png"
                   style="width: 100px; height: 100px"
@@ -85,15 +82,16 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-12 mb-3">
-                <label for="password" class="form-label">Password</label><br />
+              <div class="col-md-7 mb-3">
+                <label for="password" class="form-label">Contraseña:</label
+                ><br />
                 <p-password [toggleMask]="true" formControlName="password" />
               </div>
             </div>
 
             <div class="row">
               <div class="col-lg-9">
-                <button type="submit" class="btn btn-primary">register</button>
+                <button type="submit" class="btn btn-primary">Registro</button>
               </div>
               <div class="col-lg-3">
                 <p>
