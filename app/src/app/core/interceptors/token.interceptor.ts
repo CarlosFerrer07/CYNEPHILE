@@ -8,11 +8,6 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
         authorization: `Bearer ${token}`,
       },
     });
-  } else {
-    console.log('not token found');
   }
   return next(req);
 };
-function jwtDecode(token: string) {
-  throw new Error('Function not implemented.');
-}
