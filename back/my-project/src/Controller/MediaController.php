@@ -151,7 +151,7 @@ class MediaController extends AbstractController
 
         // Montamos la consulta
         $query = $em->createQuery(
-            'SELECT media.title, media.director,media.cast ,media.synopsis,media.poster
+            'SELECT media.id, media.title, media.director,media.cast ,media.synopsis,media.poster
             FROM App\Entity\Media media
             WHERE media.title LIKE :name'
         )->setParameter('name', '%' . $name . '%');
