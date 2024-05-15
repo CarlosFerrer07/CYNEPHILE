@@ -2,7 +2,12 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MediaService } from '../../core/services/media.service';
 import { Movies, Serie } from '../../interfaces/media.interface';
-import { ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { jwtDecode } from 'jwt-decode';
 import { CommentsService } from '../../core/services/comments.service';
 import { NgprimeModule } from '../../primeng/ngprime/ngprime.module';
@@ -31,7 +36,7 @@ export class DetailComponent {
   ) {}
 
   comentariosForm = new FormGroup({
-    comentario: new FormControl(),
+    comentario: new FormControl('', Validators['required']),
     gmail: new FormControl(),
     idMedia: new FormControl(),
   });
@@ -47,6 +52,14 @@ export class DetailComponent {
     this.comentariosForm.controls['idMedia'].setValue(this.urlId);
 
     this.getUserName();
+  }
+
+  checkForm(): any {
+    const comentarioControl = this.comentariosForm.get('comentario');
+    const result =
+      comentarioControl?.value && comentarioControl.value.trim().length > 0;
+    // Si hay valor y si contiene algún carácter no espaciado devolvemos true y en el html lo negamos para habilitarlo
+    return result;
   }
 
   onSubmit() {

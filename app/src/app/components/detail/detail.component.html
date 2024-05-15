@@ -45,18 +45,14 @@
           />
 
           <label for="idMedia">ID de la película:</label>
-          <input
-            type="number"
-            class="form-control"
-            id="idMedia"
-            formControlName="idMedia"
-          />
+          <input type="number" class="form-control" id="idMedia" />
           }
 
           <button
             style="margin-bottom: 5%; margin-top: 3%"
             type="submit"
             class="btn btn-primary"
+            [disabled]="!checkForm()"
           >
             Agregar
           </button>
