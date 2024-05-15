@@ -73,4 +73,17 @@ export class HeaderComponent {
 
     this.searchForm.reset();
   }
+
+  redirectToDetailPage(id: string) {
+    // Si estamos en detalle cogemos la nueva id y con then recargamos la pagina
+    if (this.router.url.includes('/detail')) {
+      this.router.navigate(['/detail', id]).then(() => {
+        window.location.reload();
+      });
+    } else {
+      this.router.navigate(['/detail', id]).then(() => {
+        window.location.reload();
+      });
+    }
+  }
 }

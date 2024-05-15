@@ -79,11 +79,9 @@
         <tr>
           <td>{{ media.title }}</td>
           <td>{{ media.director }}</td>
-          <td
-            style="display: flex; justify-content: center; align-items: center"
-          >
-            <a [routerLink]="['/detail', media.id]">
-              <i class="pi pi-info-circle"></i>
+          <td style="display: flex; justify-content: start">
+            <a (click)="redirectToDetailPage(media.id)">
+              <button class="btn btn-primary">+ Info</button>
             </a>
           </td>
         </tr>
