@@ -138,17 +138,20 @@ class MediaController extends AbstractController
     #[Route('/api/getMediaByName', name: 'app_media_by_name', methods: ['POST',])]
     public function getMediaByName(Request $request, EntityManagerInterface $em)
     {
+        // Cogemos el cuerpo
         $data = json_decode($request->getContent(), true);
 
-
+        // Si no hay nombre devolvemos un bad request
         if (!$data['name']) {
             return new Response('El parámetro "name" es requerido.', Response::HTTP_BAD_REQUEST);
         }
 
+        // Guardamos el nombre
         $name = $data['name'];
 
+        // Montamos la consulta
         $query = $em->createQuery(
-            'SELECT media.title, media.director,media.cast ,media.synopsis
+            'SELECT media.title, media.director,media.cast ,media.synopsis,media.poster
             FROM App\Entity\Media media
             WHERE media.title LIKE :name'
         )->setParameter('name', '%' . $name . '%');
