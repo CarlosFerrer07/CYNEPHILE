@@ -7,6 +7,7 @@ import { jwtDecode } from 'jwt-decode';
 import { CommentsService } from '../../core/services/comments.service';
 import { NgprimeModule } from '../../primeng/ngprime/ngprime.module';
 import { Comment } from '../../interfaces/coment.interface';
+import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-detail',
   standalone: true,
@@ -25,7 +26,8 @@ export class DetailComponent {
   constructor(
     private route: ActivatedRoute,
     private mediaSvc: MediaService,
-    private comentarioSvc: CommentsService
+    private comentarioSvc: CommentsService,
+    private messageService: MessageService
   ) {}
 
   comentariosForm = new FormGroup({
@@ -67,9 +69,16 @@ export class DetailComponent {
 
   getComments(id: any) {
     this.comments = [];
-    this.visible = true;
     this.comentarioSvc.getComments(id).subscribe((comments: any) => {
-      this.comments = comments;
+      if (comments.length > 0) {
+        this.visible = true;
+        this.comments = comments;
+      } else {
+        this.messageService.add({
+          severity: 'info',
+          summary: 'No hay comentarios, sea el primero en insertar!!!',
+        });
+      }
     });
   }
 }
