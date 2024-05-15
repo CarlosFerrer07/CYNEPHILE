@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MediaService } from '../../core/services/media.service';
 import { Movies, Serie } from '../../interfaces/media.interface';
 import {
@@ -13,6 +13,7 @@ import { CommentsService } from '../../core/services/comments.service';
 import { NgprimeModule } from '../../primeng/ngprime/ngprime.module';
 import { Comment } from '../../interfaces/coment.interface';
 import { MessageService } from 'primeng/api';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-detail',
   standalone: true,
@@ -32,7 +33,8 @@ export class DetailComponent {
     private route: ActivatedRoute,
     private mediaSvc: MediaService,
     private comentarioSvc: CommentsService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private location: Location
   ) {}
 
   comentariosForm = new FormGroup({
@@ -93,5 +95,9 @@ export class DetailComponent {
         });
       }
     });
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

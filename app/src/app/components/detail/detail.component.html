@@ -24,6 +24,13 @@
         <button (click)="getComments(urlId)" class="btn btn-primary">
           Ver Comentarios
         </button>
+        <button
+          style="margin-left: 5px"
+          (click)="goBack()"
+          class="btn btn-primary"
+        >
+          Volver
+        </button>
       </div>
       <div>
         <form [formGroup]="comentariosForm" (ngSubmit)="onSubmit()">
