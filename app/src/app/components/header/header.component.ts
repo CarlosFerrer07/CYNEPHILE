@@ -86,4 +86,12 @@ export class HeaderComponent {
       });
     }
   }
+
+  checkForm(): any {
+    const searchControl = this.searchForm.get('busqueda');
+    const result =
+      searchControl?.value && searchControl.value.trim().length > 0;
+    // Si hay valor y si contiene algún carácter no espaciado devolvemos true y en el html lo negamos para habilitarlo
+    return result;
+  }
 }
