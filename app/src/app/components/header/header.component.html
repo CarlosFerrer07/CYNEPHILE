@@ -33,7 +33,12 @@
           <a class="nav-link" routerLink="/myList">Mi lista</a>
         </li>
         <form [formGroup]="searchForm" (ngSubmit)="searchMedia()">
-          <input type="text" pInputText formControlName="busqueda" />
+          <input
+            type="text"
+            class="p-inputtext-sm"
+            pInputText
+            formControlName="busqueda"
+          />
           <button
             style="margin-left: 3px"
             type="submit"
