@@ -24,4 +24,11 @@ export class MediaService {
       { params: params }
     );
   }
+
+  public searchTitle(request: any): Observable<any> {
+    return this.http.post<any>(
+      environment.apiUrl + '/api/getMediaByName',
+      request
+    );
+  }
 }
