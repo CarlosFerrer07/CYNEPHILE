@@ -10,11 +10,12 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Media;
 use App\Repository\MediaRepository;
+use Doctrine\ORM\EntityManagerInterface;
 
 class MediaController extends AbstractController
 {
     #[Route('api/getAllMedia', name: 'app_media', methods: ['get'])]
-    public function media(ManagerRegistry $doctrine): JsonResponse
+    public function media(ManagerRegistry $doctrine, EntityManagerInterface $em): JsonResponse
     {
         $allMedia = $doctrine
             ->getRepository(Media::class)
@@ -47,7 +48,7 @@ class MediaController extends AbstractController
     {
         $allMovies = $doctrine
             ->getRepository(Media::class)
-            ->findBy(['type' => 'Pelicula']);;
+            ->findBy(['type' => 'Pelicula']);
 
         $dataMovies = [];
 
@@ -132,5 +133,28 @@ class MediaController extends AbstractController
 
 
         return $this->json($dataMedia);
+    }
+
+    #[Route('/api/getMediaByName', name: 'app_media_by_name', methods: ['POST',])]
+    public function getMediaByName(Request $request, EntityManagerInterface $em)
+    {
+        $data = json_decode($request->getContent(), true);
+
+
+        if (!$data['name']) {
+            return new Response('El parámetro "name" es requerido.', Response::HTTP_BAD_REQUEST);
+        }
+
+        $name = $data['name'];
+
+        $query = $em->createQuery(
+            'SELECT media.title, media.director,media.cast ,media.synopsis
+            FROM App\Entity\Media media
+            WHERE media.title LIKE :name'
+        )->setParameter('name', '%' . $name . '%');
+
+        $media = $query->getResult();
+
+        return $this->json($media);
     }
 }
